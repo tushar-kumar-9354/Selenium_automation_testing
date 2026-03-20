@@ -7,11 +7,9 @@ on:
 
 jobs:
   test:
-
     runs-on: windows-latest
 
     steps:
-
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -22,8 +20,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r TestPilotPro/requirements.txt
 
     - name: Run tests
       run: |
+        cd TestPilotPro
         pytest -v
