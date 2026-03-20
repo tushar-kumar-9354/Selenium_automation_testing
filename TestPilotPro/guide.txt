@@ -68,3 +68,12 @@ README batata hai project kya karta hai.
 .gitignore batata hai kya upload nahi karna.
 
 Ye professional project ka final polish hai.
+
+
+Phase 12:
+
+Ab framework ek browser tak limited nahi.
+Chrome aur Firefox dono support kar raha hai.
+
+Parallel testing se multiple tests ek saath chal sakte hain.
+Execution fast ho gaya.
