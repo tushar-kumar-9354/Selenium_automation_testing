@@ -22,3 +22,4 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(file_name)
 
 # To run tests in parallel, use the command:
+# pytest -v
