@@ -41,4 +41,4 @@ def test_checkout_flow(driver):
     success = checkout.get_success_message()
 
     assert "Thank you" in success
-    logger.info("Order success verified")
+    logger.info("Order success verified !")
