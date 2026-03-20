@@ -4,24 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      # Run tests when these files/directories change
-      - 'TestPilotPro/tests/**/*.py'
-      - 'TestPilotPro/pages/**/*.py'
-      - 'TestPilotPro/utils/**/*.py'
-      - 'TestPilotPro/data/**'
-      - 'TestPilotPro/config.py'
-      - 'TestPilotPro/requirements.txt'
-      - '.github/workflows/selenium-tests.yml'
-      # Exclude these from triggering tests
-      - '!**/README.md'
-      - '!**/guide.txt'
-      - '!**/.gitignore'
-      - '!**/testpilotpro_venv/**'
-      - '!**/__pycache__/**'
-      - '!**/.pytest_cache/**'
-      - '!**/logs/**'
-      - '!**/reports/**'
 
 jobs:
   test:
@@ -36,37 +18,11 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Cache pip packages
-      uses: actions/cache@v3
-      with:
-        path: ~\AppData\Local\pip\Cache
-        key: ${{ runner.os }}-pip-${{ hashFiles('TestPilotPro/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
-
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        cd TestPilotPro
-        if (Test-Path "requirements.txt") {
-          python -m pip install -r requirements.txt
-        } else {
-          Write-Host "Installing default packages"
-          python -m pip install pytest selenium pytest-xdist webdriver-manager pytest-html pytest-metadata
-        }
+        python -m pip install -r TestPilotPro/requirements.txt
 
     - name: Run tests
       run: |
         cd TestPilotPro
-        pytest -n 2 -v --tb=short --html=reports/report.html --self-contained-html
-        
-    - name: Upload test logs
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-logs
-        path: |
-          TestPilotPro/logs/
-          TestPilotPro/reports/
-          TestPilotPro/screenshots/
-        retention-days: 7
+        pytest -n 2 -v
