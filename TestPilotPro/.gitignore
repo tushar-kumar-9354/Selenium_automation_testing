@@ -1,0 +1,7 @@
+testpilotpro_venv/
+__pycache__/
+.pytest_cache/
+reports/
+logs/
+screenshots/
+*.pyc
