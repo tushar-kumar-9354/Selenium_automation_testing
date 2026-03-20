@@ -25,4 +25,4 @@ jobs:
     - name: Run tests
       run: |
         cd TestPilotPro
-        pytest -v
+        pytest -n 2 -v
