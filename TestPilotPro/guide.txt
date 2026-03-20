@@ -301,4 +301,4 @@ This is not just a testing script.
 
 This is a mini automation framework similar to what QA engineers build in companies.
 
-now if you update any file and push to your github it will automatically start testing the testcases.
+now if you update any file and push to your github it will automatically start testing the testcases excluding pushed files like .gitignore,Guide.txtand README.md .
