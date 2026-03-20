@@ -20,3 +20,5 @@ def pytest_runtest_makereport(item, call):
             os.makedirs("screenshots", exist_ok=True)
             file_name = f"screenshots/{item.name}.png"
             driver.save_screenshot(file_name)
+
+# To run tests in parallel, use the command:
